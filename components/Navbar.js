@@ -9,6 +9,7 @@ const Navbar = () => {
   const router = useRouter();
 
   const handleSearch = (e) => {
+    e.preventDefault()
     if (search.trim()) {
       router.push(`/weather?location=${encodeURIComponent(search.trim())}`);
     }
