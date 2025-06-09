@@ -8,7 +8,8 @@
     "build": "next build && next export",
     "start": "next start",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out",
+    "type": "module"
   },
   "dependencies": {
     "next": "15.3.3",
