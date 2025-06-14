@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d out"
+    "export": "next build && next export",
+    "deploy": "gh-pages -d out -b gh-pages"
   },
   "dependencies": {
     "next": "latest",
