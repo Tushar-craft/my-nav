@@ -1,17 +1,19 @@
 const isGithubPages = process.env.NODE_ENV === 'production';
+const repoName = 'my-nav'; // Your GitHub repo name
 
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
-  basePath: isGithubPages ? '/my-nav' : '',
-  assetPrefix: isGithubPages ? '/my-nav/' : '',
+  basePath: isGithubPages ? `/${repoName}` : '',
+  assetPrefix: isGithubPages ? `/${repoName}/` : '',
   images: {
-    unoptimized: true
+    unoptimized: true // Required for static exports
   },
-  // Add this experimental config for CSS:
+  // Add this to ensure CSS is properly exported
   experimental: {
-    appDir: true,
-    css: true
+    outputFileTracingIncludes: {
+      '/*': ['./**/*.css']
+    }
   }
 };
 

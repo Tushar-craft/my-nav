@@ -7,11 +7,12 @@ import styles from '../styles/Navbar.module.css';
 const Navbar = () => {
   const [search, setSearch] = useState('');
   const router = useRouter();
+  const basePath = process.env.NODE_ENV === 'production' ? '/my-nav' : '';
 
   const handleSearch = (e) => {
     e.preventDefault()
     if (search.trim()) {
-      router.push(`/weather?location=${encodeURIComponent(search.trim())}`);
+      router.push(`${basePath}/weather?location=${encodeURIComponent(search.trim())}`);
     }
   };
 
@@ -19,8 +20,14 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       {/* Logo Section */}
       <div className={styles.logoSection}>
-        <Link href="/">
-          <img src="/faveron.svg" alt="Craftisque Logo" className={styles.logoIcon} />
+        <Link href={`${basePath}/`} passHref legacyBehavior>
+          <a>
+            <img 
+              src={`${basePath}/faveron.svg`} 
+              alt="Craftisque Logo" 
+              className={styles.logoIcon} 
+            />
+          </a>
         </Link>
       </div>
 
@@ -40,14 +47,18 @@ const Navbar = () => {
 
       {/* Icons Section */}
       <div className={styles.iconSection}>
-        <Link href="/login" className={styles.iconLink}>
-          <FiUser className={styles.icon} />
-          <span>Login</span>
+        <Link href={`${basePath}/login`} passHref legacyBehavior>
+          <a className={styles.iconLink}>
+            <FiUser className={styles.icon} />
+            <span>Login</span>
+          </a>
         </Link>
-        <Link href="/cart" className={styles.iconLink}>
-          <FiShoppingCart className={styles.icon} />
-          <span>Cart</span>
-          <span className={styles.cartCount}>0</span>
+        <Link href={`${basePath}/cart`} passHref legacyBehavior>
+          <a className={styles.iconLink}>
+            <FiShoppingCart className={styles.icon} />
+            <span>Cart</span>
+            <span className={styles.cartCount}>0</span>
+          </a>
         </Link>
       </div>
     </nav>
