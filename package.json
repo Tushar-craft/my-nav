@@ -1,0 +1,22 @@
+{
+  "name": "my-nav",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "predeploy": "next build && echo '' > out/.nojekyll",
+    "deploy": "gh-pages -d out -b gh-pages"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  },
+  "homepage": "https://tushar-craft.github.io/my-nav"
+}
